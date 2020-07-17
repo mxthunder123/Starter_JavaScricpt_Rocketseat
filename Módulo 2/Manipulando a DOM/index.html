@@ -1,0 +1,78 @@
+<html>
+  <head>
+    <title>Curso Javascript</title>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <div id="app">
+      <button id="new">
+        Criar quadrado vermelho
+      </button>
+
+      <div id="squad"></div>
+
+      <ul></ul>
+      <input type="text" name="nome" />
+      <button onClick="adicionar()" id="del">Adicionar</button>
+    </div>
+
+    <script>
+      var btnElement = document.getElementById('new');
+      var squaresElement = document.getElementById('squad');
+
+      btnElement.onclick = function () {
+        var square = document.createElement('div');
+        square.style.width = 100;
+        square.style.height = 100;
+        square.style.backgroundColor = '#F00';
+        squaresElement.appendChild(square);
+        square.onmouseover = function () {
+          square.style.backgroundColor = getRandomColor();
+        };
+      };
+      function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+
+      var nomes = [' Diego', ' Gabriel', ' Lucas'];
+      var dados = document.querySelector('ul');
+      for (name of nomes) {
+        adicionaItem(name);
+      }
+
+      var botao2 = document.querySelector('#del');
+      var palavras = document.querySelector('input[name=nome]');
+
+      function adicionaItem(name) {
+        console.log('TCL: adicionaItem -> name', name);
+        var elementoFilho = document.createElement('li');
+
+        var palavra = document.createTextNode(name);
+
+        elementoFilho.appendChild(palavra);
+
+        dados.appendChild(elementoFilho);
+      }
+
+      function adicionar() {
+        adicionaItem(palavras.value);
+
+        inputNewName.value = '';
+      }
+
+      var linkElement = document.createElement('a');
+      linkElement.setAttribute('href', 'http://pedrogsta.com.br');
+      var text = document.createTextNode('Acessar conhecimentos Javascript');
+      linkElement.appendChild(text);
+
+      var containerElement = document.querySelector('#app');
+      containerElement.appendChild(linkElement);
+    </script>
+  </body>
+</html>
