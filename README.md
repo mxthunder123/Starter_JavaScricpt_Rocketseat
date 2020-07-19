@@ -13,6 +13,7 @@ Estarei organizando os arquivos em pastas, sendo  cada uma correspondente a um m
 
 ## 💻 TECNOLOGIAS ESTUDADAS:
   -JavaScript;
+  
   -HTML;
   
   
